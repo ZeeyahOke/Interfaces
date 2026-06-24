@@ -2,14 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script tests the IShape interface by creating one of each shape,
+// calling their methods, and printing the results to the Unity Console.
 public class InterfaceTestScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Create one object of each shape class.
+        Trapezium trapezium = new Trapezium();
+        Circle circle = new Circle();
+        Nonagon nonagon = new Nonagon();
+ 
+        // --- Trapezium ---
+        Debug.Log("---- Trapezium ----");
+        Debug.Log("Unknown (slant) side: " + trapezium.CalculateUnknownSides());
+        Debug.Log("Area: " + trapezium.CalculateArea());
+        Debug.Log("Perimeter: " + trapezium.CalculatePerimeter());
+ 
+        // --- Circle ---
+        Debug.Log("---- Circle ----");
+        Debug.Log("Radius: " + circle.CalculateRadius());
+        Debug.Log("Area: " + circle.CalculateArea());
+        Debug.Log("Perimeter (circumference): " + circle.CalculatePerimeter());
+ 
+        // --- Nonagon ---
+        Debug.Log("---- Nonagon ----");
+        Debug.Log("Number of sides: " + nonagon.CalculateNumberOfSides());
+        Debug.Log("Area: " + nonagon.CalculateArea());
+        Debug.Log("Perimeter: " + nonagon.CalculatePerimeter());
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -82,7 +104,7 @@ public class Circle : IShape
 
 public class Nonagon : IShape
 {
-    // A nonagon has 9 sides. Treated here as a regular nonagon.
+    // A nonagon has 9 sides. 
     int numberOfSides = 9;
     float sideLength = 4f;
  
