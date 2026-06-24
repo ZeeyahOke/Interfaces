@@ -58,19 +58,25 @@ public class Trapezium : IShape
 
 public class Circle : IShape
 {
-    public void CalculateArea()
+    float diameter = 10f;
+ 
+    // Unique to Circle: the radius is half the diameter.
+    public float CalculateRadius()
     {
-        
+        return diameter / 2f;
     }
-
-    public void CalculateRadius()
+ 
+    // Area = PI x radius squared
+    public float CalculateArea()
     {
-
+        float radius = CalculateRadius();
+        return Mathf.PI * radius * radius;
     }
-
-    public void CalculatePerimeter()
+ 
+    // Perimeter of a circle is its circumference = PI x diameter
+    public float CalculatePerimeter()
     {
-        
+        return Mathf.PI * diameter;
     }
 }
 
