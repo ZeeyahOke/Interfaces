@@ -17,9 +17,13 @@ public class InterfaceTestScript : MonoBehaviour
     }
 }
 
+// The interface only declares the methods EVERY shape shares.
+// Area and Perimeter are common to all shapes, so they belong here.
+// Shape-specific methods (radius, sides, etc.) stay in their own classes.
 public interface IShape
 {
-   
+    float CalculateArea();
+    float CalculatePerimeter();
 }
 
 public class Trapezium : IShape
