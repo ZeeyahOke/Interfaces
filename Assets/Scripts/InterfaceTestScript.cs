@@ -28,19 +28,31 @@ public interface IShape
 
 public class Trapezium : IShape
 {
-    public void CalculateUnknownSides()
+    // The two parallel sides, the height, and one slanted leg.
+    float parallelSideA = 8f;
+    float parallelSideB = 4f;
+    float height = 3f;
+    float legC = 5f;
+ 
+    // Unique to Trapezium: estimate the unknown slant leg using Pythagoras
+    // (horizontal offset between the parallel sides, plus the height).
+    public float CalculateUnknownSides()
     {
-
+        float offset = parallelSideA - parallelSideB;
+        return Mathf.Sqrt((offset * offset) + (height * height));
     }
-
-    public void CalculateArea()
+ 
+    // Area of a trapezium = 1/2 x (sum of parallel sides) x height
+    public float CalculateArea()
     {
-
+        return 0.5f * (parallelSideA + parallelSideB) * height;
     }
-
-    public void CalculatePerimeter()
+ 
+    // Perimeter = all four sides added together.
+    public float CalculatePerimeter()
     {
-        
+        float legD = CalculateUnknownSides();
+        return parallelSideA + parallelSideB + legC + legD;
     }
 }
 
