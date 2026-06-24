@@ -82,20 +82,26 @@ public class Circle : IShape
 
 public class Nonagon : IShape
 {
-    int numberOfSides;
-
-    public void CalculateArea()
-    {
-        
-    }
-
-    public void CalculatePerimeter()
-    {
-        
-    }
-
+    // A nonagon has 9 sides. Treated here as a regular nonagon.
+    int numberOfSides = 9;
+    float sideLength = 4f;
+ 
+    // Unique to Nonagon: return how many sides it has.
     public int CalculateNumberOfSides()
     {
         return numberOfSides;
+    }
+ 
+    // Area of a regular polygon = (n x s^2) / (4 x tan(PI / n))
+    public float CalculateArea()
+    {
+        return (numberOfSides * sideLength * sideLength)
+               / (4f * Mathf.Tan(Mathf.PI / numberOfSides));
+    }
+ 
+    // Perimeter = number of sides x length of each side.
+    public float CalculatePerimeter()
+    {
+        return numberOfSides * sideLength;
     }
 }
